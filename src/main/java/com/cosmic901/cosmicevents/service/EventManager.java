@@ -10,14 +10,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitTask;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 
 public class EventManager {
     static final long REWARD_DELAY_TICKS = InventorySnapshotService.RESTORE_CONSUME_DELAY_TICKS;
@@ -535,6 +528,8 @@ public class EventManager {
                 UUID uuid = joinQueue.get(index[0]++);
                 Player player = Bukkit.getPlayer(uuid);
                 if (player != null && player.isOnline()) {
+                    tracker.saveJoinSnapshot(player);
+                    snapshotJoinInventory(player);
                     sendPlayerToArena(player, arenaId, gameId);
                 }
                 joinedThisTick++;
@@ -687,8 +682,6 @@ public class EventManager {
         } else {
             tracker.participants().add(player.getUniqueId());
         }
-        tracker.saveJoinSnapshot(player);
-        snapshotJoinInventory(player);
         if (!isExempt(player)) {
             tracker.saveAndNeutralizeMovement(player);
             tracker.stripMovementEffects(player);
