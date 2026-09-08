@@ -1,0 +1,45 @@
+event_start:
+  enabled: true
+  sound: "ENTITY_PLAYER_LEVELUP"
+  volume: 1.0
+  pitch: 1.0
+event_countdown:
+  enabled: true
+  sound: "BLOCK_NOTE_BLOCK_PLING"
+  volume: 1.0
+  pitch: 1.2
+event_vote:
+  enabled: true
+  sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  volume: 1.0
+  pitch: 1.0
+event_join:
+  enabled: true
+  sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  volume: 1.0
+  pitch: 1.5
+event_game_launch:
+  enabled: true
+  sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  volume: 0.8
+  pitch: 0.8
+event_cancelled:
+  enabled: true
+  sound: "ENTITY_VILLAGER_NO"
+  volume: 1.0
+  pitch: 1.0
+game_win:
+  enabled: true
+  sound: "UI_TOAST_CHALLENGE_COMPLETE"
+  volume: 1.0
+  pitch: 1.0
+game_second:
+  enabled: true
+  sound: "ENTITY_PLAYER_LEVELUP"
+  volume: 1.0
+  pitch: 1.2
+game_third:
+  enabled: true
+  sound: "ENTITY_EXPERIENCE_ORB_PICKUP"
+  volume: 1.0
+  pitch: 1.0

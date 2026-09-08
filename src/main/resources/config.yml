@@ -1,0 +1,201 @@
+enable_scheduler: true
+event_interval_hours: 2.0
+join_duration_seconds: 60
+min_players: 2
+max_players: 0
+allowed_worlds: []
+authorization_ticks: 40
+game_timeout_minutes: 30
+direct_start_confirmation_timeout_seconds: 10
+direct_start_poll_ticks: 2
+direct_start_timeout_seconds: 10
+join_stagger_ticks: 1
+players_per_join_tick: 64
+# Extra ticks after the countdown hits 0 before entry actually closes. Lets a
+# last-second /event join finish snapshotting inventory before arena send.
+join_close_grace_ticks: 5
+arena_ready_timeout_seconds: 60
+arena_ready_poll_ticks: 10
+# /event donorstart — lets donors open an event themselves.
+# Refused while an event is already running (join phase included).
+donor_start:
+  enabled: true
+  # Permission a player needs. LuckPerms grants group.<name> to everyone in that group,
+  # so "group.sun" means anyone in the sun group. cosmicevents.admin always passes.
+  permission: "group.sun"
+  # Hours a player waits between uses. 0 disables the cooldown.
+  # Timestamps live in donor_cooldowns.yml, so cooldowns survive restarts.
+  cooldown_hours: 24
+  # Join phase length in seconds. 0 uses join_duration_seconds above.
+  join_duration_seconds: 0
+  # Put the player who ran the command straight into the event.
+  auto_join: true
+blocked_commands:
+  - "ba"
+  - "bluearcade"
+  - "arcade"
+allowed_commands_during_game:
+  - "event"
+  - "events"
+  - "msg"
+  - "tell"
+  - "r"
+  - "w"
+# Applied during join phase and arena wait. Donor /speed /jump stay blocked.
+# Minigame speed and jump boost still apply after the round actually starts.
+broadcast_votes_to_participants: true
+placeholders:
+  time_hours_format: "{hours}h {minutes}m {seconds}s"
+  time_minutes_format: "{minutes}m {seconds}s"
+  time_seconds_format: "{seconds}s"
+  joining_format: "&aJoining ({time}s)"
+  active_format: "&cActive"
+  idle_starting_soon: "Starting soon..."
+  # Per-player (works offline / for LB plugins): %cosmicevents_wins% or %autoevent_wins%
+join_command: "ba join {arena}"
+leave_command: "ba leave confirm"
+# Snapshot inventories at /event join, before BlueArcade. Restored on leave, kick,
+# disconnect, and next login. Files live in plugins/CosmicEvents/inventories/.
+# Live items stay until BlueArcade has joined (so BA snapshots the real inventory),
+# then they are stripped so survival items cannot leak into the minigame.
+restore_inventory: true
+# Join origin (world, gamemode, potion effects, walk/fly speed) is always saved so
+# a disconnect or restart cannot dump players into the overworld with leftover
+# minigame speed/jump boost. Files live in plugins/CosmicEvents/origins/.
+# Runs once all event players are in the arena (before the game starts).
+# Commands with {player}/{uuid} (or %player%/%uuid%) run once per player as console.
+# Commands without those placeholders run once globally.
+# Other placeholders: {arena}, {game}
+post_join_console_commands: []
+post_join_player_commands: []
+arenas:
+  - "1"
+minigames:
+  - "all_against_all"
+  - "block_party"
+  - "bridge_race"
+  - "chairs"
+  - "exploding_sheep"
+  - "fast_zone"
+  - "knockback"
+  - "minefield"
+  - "one_in_the_chamber"
+  - "race"
+  - "red_alert"
+  - "run_from_the_beast"
+  - "snowball_fight"
+  - "spleef"
+  - "splegg"
+  - "tnt_run"
+  - "tnt_tag"
+  - "traffic_light"
+  - "water_well"
+messages:
+  prefix: "&6&lEVENT &8» &r"
+  help:
+    - "&6&lCosmicEvents"
+    - "&e/event join &7- Join"
+    - "&e/event leave &7- Leave"
+    - "&e/event vote &7- Pick a game"
+    - "&e/event time &7- See the next event"
+  donor_help:
+    - "&e/event donorstart &7- Start an event yourself"
+  donor_start_disabled: "&cDonor event starting is disabled."
+  donor_start_event_running: "&cAn event is already running — you cannot start another one right now."
+  donor_start_cooldown: "&cYou can start another event in &e{time}&c."
+  donor_start_failed: "&cThe event could not be started. Try again shortly."
+  donor_start_success: "&aYou started the event!"
+  donor_start_broadcast:
+    - "&e{player} &astarted an event! Type &b/event join &ato enter."
+  admin_help:
+    - "&6Admin commands"
+    - "&e/event start &7- Start joining"
+    - "&e/event forcestart [seconds] &7- Start a test"
+    - "&e/event stop &7- Stop the event"
+    - "&e/event reload &7- Reload settings"
+  event_announcement:
+    - "<yellow><strikethrough>-------------------------------------------------</strikethrough></yellow>"
+    - "  <green><bold>COSMIC EVENT STARTED!</bold></green>"
+    - "  <gray>A new event is starting in <yellow>{time} seconds</yellow>!</gray>"
+    - "  <gray>Type <aqua>/event join</aqua> to enter!</gray>"
+    - "<yellow><strikethrough>-------------------------------------------------</strikethrough></yellow>"
+  event_countdown: "&7Event starting in &e{time} &7seconds! Type &b/event join &7to enter."
+  event_cancelled_low_players: "&cNot enough players. You need {min_players}."
+  entry_closed: "&aEntry closed. Starting the selected game now..."
+  game_selected: "&aSelected game: &e{minigame}&a. Connecting now..."
+  no_minigames: "&cNo event games are configured."
+  bluearcade_unavailable: "&cGames are not ready. Try again soon."
+  direct_start_unavailable: "&cThe game is not ready. Try again soon."
+  direct_start_failed: "&cThe game did not start. You were sent back."
+  game_start_timeout: "&cThe game took too long. You were sent back."
+  join_failed: "&cNot everyone could join. You were sent back."
+  invalid_arena: "&cThe arena setting is wrong."
+  arena_restarting: "&eThe game arena is resetting. Please wait..."
+  arena_restart_timeout: "&cThe arena took too long. You were sent back."
+  vote_cast: "&aYou voted for &e{minigame}&a! (Your vote power: &b{weight}&a)"
+  already_voted: "&cYou have already voted for this minigame!"
+  invalid_minigame: "&cYou cannot pick that game."
+  not_in_event: "&cYou are not in the event! Type /event join to join."
+  already_in_event: "&cYou are already in the event!"
+  joined_event: "&aYou entered the event. Vote with &b/event vote&a."
+  joined_event_single: "&aYou entered the event. The game will start shortly."
+  left_event: "&cYou left the event."
+  left_game: "&cYou left the event game."
+  voting_disabled_single: "&cThere is one game, so no vote is needed."
+  event_full: "&cThe event is full (&e{max}&c players)."
+  wrong_world: "&cYou cannot join the event from this world."
+  player_joined_broadcast:
+    - "&e{player} &ahas joined the event! &e{count}&7/&e{max_players}"
+  player_left_broadcast:
+    - "&e{player} &chas left the event. &e{count}&7/&e{max_players}"
+  player_voted_broadcast:
+    - "&e{player} &avoted for &e{minigame}&a! &7(Votes: &e{votes}&7)"
+  no_event_running: "&cThere is no event running right now."
+  command_blocked_during_game: "&cYou cannot use that now. Use /event leave to exit."
+  direct_join_blocked: "&cUse &e/event join &cto enter event games."
+  no_arenas_available: "&cNo arena is ready for &e{minigame}&c."
+  next_event_timer: "&7Next auto event in: &e{time}"
+  only_players: "&cOnly a player can use this command."
+  no_permission: "&cYou cannot use this command."
+  force_start: "&aPlayers can now join the event."
+  force_start_debug: "&aTest event started. Join time: {time}s."
+  force_stop: "&cThe event was stopped."
+  event_already_running: "&cAn event is already running."
+  reload_success: "&aCosmicEvents configuration reloaded."
+# Placement rewards (1st / 2nd / 3rd). Item is optional when using commands only.
+# commands run as console by default. Prefix with "player:" to run as the player.
+# "commands" may be a list or a single string; the old "command:" key still works.
+# Plain-text tellraw is converted to JSON for you, e.g. "tellraw {player} &aYou won!".
+# Placeholders: {player}, {uuid}, {position}. message also accepts {amount}, {item}.
+# Failed or unknown commands are reported in the console log.
+rewards:
+  enabled: true
+  first:
+    item:
+      material: "GOLD_INGOT"
+      amount: 3
+      name: "&6&lEvent Ticket 1st"
+      lore:
+        - "&7Awarded for first place"
+    # message: "&aYou won and received {amount}x {item}&a!"
+    # Example commands:
+    #   - "tellraw {player} &aYou won!"
+    #   - "lp user {player} permission set example.reward true"
+    #   - "player: warp spawn"
+    commands: []
+  second:
+    item:
+      material: "IRON_INGOT"
+      amount: 2
+      name: "&f&lEvent Ticket 2nd"
+      lore:
+        - "&7Awarded for second place"
+    commands: []
+  third:
+    item:
+      material: "COPPER_INGOT"
+      amount: 1
+      name: "&c&lEvent Ticket 3rd"
+      lore:
+        - "&7Awarded for third place"
+    commands: []

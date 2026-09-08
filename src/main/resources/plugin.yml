@@ -1,0 +1,30 @@
+name: CosmicEvents
+version: '${version}'
+main: com.cosmic901.cosmicevents.CosmicEvents
+api-version: '1.21'
+author: cosmic901
+softdepend: [BlueArcade, BlueArcade3, PlaceholderAPI, Nexo]
+commands:
+  event:
+    description: "Join, vote, leave, or run an event."
+    usage: "/event <join|leave|vote|time|donorstart>"
+    aliases: [events]
+permissions:
+  cosmicevents.use:
+    description: "Join and vote in events."
+    default: true
+  cosmicevents.admin:
+    description: "Start, stop, and reload events."
+    default: op
+  cosmicevents.bypass:
+    description: "Skip event limits."
+    default: op
+  cosmicevents.vote.booster:
+    description: "Give this vote more power."
+    default: false
+  cosmicevents.vote.vip:
+    description: "Give this VIP vote more power."
+    default: false
+  cosmicevents.vote.admin:
+    description: "Give this admin vote more power."
+    default: op

@@ -1,0 +1,216 @@
+title: "&e&lVote for minigames &7(Page {page}/{pages})"
+# false = always use size below (needed for filler glass + close button)
+dynamic_size: false
+size: 54
+# Fills every empty slot after games / decorations are placed
+filler:
+  enabled: true
+  material: "BLACK_STAINED_GLASS_PANE"
+  name: " "
+pagination:
+  previous_slot: 45
+  next_slot: 53
+  previous_material: "ARROW"
+  next_material: "ARROW"
+  previous_name: "&e« &7Previous Page"
+  next_name: "&7Next Page &e»"
+items:
+  block_party:
+    material: "MUSIC_DISC_13"
+    slot: 10
+    name: "&d&lBlock Party"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  race:
+    material: "MINECART"
+    slot: 11
+    name: "&e&lRace"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  all_against_all:
+    material: "IRON_SWORD"
+    slot: 12
+    name: "&c&lAll Against All"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  bridge_race:
+    material: "BRICKS"
+    slot: 13
+    name: "&a&lBridge Race"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  exploding_sheep:
+    material: "SHEARS"
+    slot: 14
+    name: "&f&lExploding Sheep"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  fast_zone:
+    material: "ICE"
+    slot: 15
+    name: "&b&lFast Zone"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  knockback:
+    material: "STICK"
+    slot: 16
+    name: "&a&lKnockback"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  minefield:
+    material: "YELLOW_CARPET"
+    slot: 19
+    name: "&7&lMinefield"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  one_in_the_chamber:
+    material: "BOW"
+    slot: 20
+    name: "&6&lOne In The Chamber"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  chairs:
+    material: "EMERALD"
+    slot: 21
+    name: "&e&lChairs"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  red_alert:
+    material: "RED_CONCRETE"
+    slot: 22
+    name: "&c&lRed Alert"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  run_from_the_beast:
+    material: "DRAGON_HEAD"
+    slot: 23
+    name: "&3&lRun From The Beast"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  snowball_fight:
+    material: "SNOWBALL"
+    slot: 24
+    name: "&f&lSnowball Fight"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  spleef:
+    material: "WHITE_CONCRETE"
+    slot: 25
+    name: "&f&lSpleef"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  splegg:
+    material: "EGG"
+    slot: 28
+    name: "&e&lSplegg"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  tnt_run:
+    material: "TNT_MINECART"
+    slot: 29
+    name: "&c&lTNT Run"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  tnt_tag:
+    material: "TNT"
+    slot: 30
+    name: "&c&lTNT Tag"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  traffic_light:
+    material: "ROSE_BUSH"
+    slot: 31
+    name: "&a&lTraffic Light"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+  water_well:
+    material: "WATER_BUCKET"
+    slot: 32
+    name: "&b&lWater Well"
+    lore:
+      - ""
+      - " &8» &7Vote to play this minigame."
+      - " &8» &fCurrent Votes: &b{votes}"
+      - ""
+      - " &aClick to vote!"
+decorations:
+  close:
+    # Change to your Nexo item id, e.g. nexo-gui_close or nexo:gui_close
+    material: "nexo-gui_close"
+    slot: 49
+    name: "&c&lClose"
+    lore:
+      - "&7Click to close this menu."
+    action: close

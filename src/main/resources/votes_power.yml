@@ -1,0 +1,15 @@
+# Highest matching weight is used.
+op_weight: 5
+ops_always_use_op_weight: true
+default_weight: 1
+
+# LuckPerms ranks. "sun" matches anyone in the sun group (permission group.sun).
+# Add every rank that should vote for more than default_weight.
+groups:
+  sun: 3
+
+# Extra permission nodes (optional). Dotted names like group.sun and cosmicevents.vote.vip work.
+permissions:
+  cosmicevents.vote.admin: 5
+  cosmicevents.vote.vip: 3
+  cosmicevents.vote.booster: 2
