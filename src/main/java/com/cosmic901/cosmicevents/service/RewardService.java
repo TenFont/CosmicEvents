@@ -83,7 +83,9 @@ public final class RewardService {
             return;
         }
 
-        giveItemReward(player, positionSection);
+        if (rewardsSection == null || !rewardsSection.getBoolean("disable-item-rewards", false)) {
+            giveItemReward(player, positionSection);
+        }
         sendRewardMessage(player, positionSection, position);
         runRewardCommands(player, positionSection, position);
     }
