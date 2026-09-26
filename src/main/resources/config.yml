@@ -170,6 +170,7 @@ messages:
 # Failed or unknown commands are reported in the console log.
 rewards:
   enabled: true
+  disable-item-rewards: false
   first:
     item:
       material: "GOLD_INGOT"
